@@ -1,16 +1,47 @@
 <html>
-    <head>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">
+        <h1 class="header">Simple Interest Calculator</h1>
+        <!-- Form section -->
+        <div class="form">
+          <form>
+            <div class="input-fieldset">
+              <div class="input-filed">
+                <label>Amount</label>
+                <input class="input" type="text" id="amount" value="" />
+              </div>
+              <div class="input-filed">
+                <label>Interest Rate</label>
+                <input
+                  class="input"
+                  type="range"
+                  min="0.0"
+                  max="100"
+                  step="0.1"
+                  value="0"
+                  id="rate-slider"
+                /><span class="interest-rate"></span>
+              </div>
+              <div class="input-filed">
+                <label>No. of Years</label>
+                <input class="input" type="text" id="years" />
+              </div>
+            </div>
+            <button type="submit" class="btn-cal">Caompute Interest</button>
+          </form>
+
+          <div class="message hidden">
+            If you deposit 1000000,<br />at an interest rate of 3.5%.<br />You
+            will receive an amount of 175000,<br />in the year 2025
+          </div>
+        </div>
+        <div class="footer">&copy; Every One Can Get Rich</div>
+      </div>
+    </div>
     <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>Simple Interest Calculator</h1>
-
-        Amount <input type="number"  id="principal">  <br/>
-        Rate <input type="number"  id="rate">  <br/>
-        No. of Years <input type="number"  id="years">  <br/>
-        Interest : <span id="result"></span><br>
-
-        <button onclick="compute()">Compute</button>
-    </body>
+  </body>
 </html>
