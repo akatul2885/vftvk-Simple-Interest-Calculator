@@ -65,10 +65,11 @@ label {
   position: absolute;
   left: 30px;
   bottom: 10px;
+  font-size: 13px;
 }
 .hidden {
   display: none;
 }
 .highlight {
-  background-color: rgb(255, 247, 177);
+  background-color: #ffff66;
 }
