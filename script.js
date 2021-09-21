@@ -14,10 +14,10 @@ slider.oninput = function () {
 };
 
 // Validating the user input
-const validateUserInput = function (amount, year) {
-  if (isNaN(amount) || isNaN(year)) {
-    return false;
-  } else if (amount < 0 || year <= 0) {
+const validateUserInput = function (amount) {
+  if (amount <= 0) {
+    alert("Please enter a positive number.");
+    amountInput.focus();
     return false;
   } else return true;
 };
@@ -25,15 +25,11 @@ const validateUserInput = function (amount, year) {
 // Processing the data and giving the appropiate output on the page
 btn.addEventListener("click", function (e) {
   e.preventDefault();
-  const amount = Number(amountInput.value);
+  const amount = amountInput.value;
   const rate = rateInput.value;
   const year = Number(yearsInput.value);
 
-  if (!validateUserInput(amount, year)) {
-    message.innerHTML = "<p>You have not entered values in correct format</p>";
-    message.classList.remove("hidden");
-    message.classList.remove("success");
-    message.classList.add("warning");
+  if (!validateUserInput(amount)) {
     return;
   }
 
@@ -46,11 +42,9 @@ btn.addEventListener("click", function (e) {
   const finalyear = year + n;
 
   // Print the output
-  message.innerHTML = `If you deposit ${amount},<br />at an interest rate of ${rate}%.<br />You
-            will receive an amount of ${interest},<br />in the year ${finalyear}`;
+  message.innerHTML = `If you deposit <span class="highlight">${amount}</span>,<br />at an interest rate of <span class="highlight">${rate}%</span>.<br />You
+            will receive an amount of <span class="highlight">${interest}</span>,<br />in the year <span class="highlight">${finalyear}</span>`;
 
   // Showing the output by appropiate classes
   message.classList.remove("hidden");
-  message.classList.remove("warning");
-  message.classList.add("success");
 });
